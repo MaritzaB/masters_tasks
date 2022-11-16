@@ -1,21 +1,102 @@
-\documentclass[12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
- 
-\usepackage{multicol}
-\usepackage[a4paper]{geometry}
-\geometry{top=1.5cm, bottom=1.0cm, left=1.25cm, right=1.25cm}
- 
+\documentclass[twoside]{article}
+
+\usepackage{lipsum} % Package to generate dummy text throughout this template
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage{multicol} % Used for the two-column layout of the document
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+\usepackage[hidelinks]{hyperref}    % Vinculos [que no estén subrayados]
+
+\usepackage{lettrine} % The lettrine is the first en\usepackage[hidelinks]{hyperref}    % Vinculos [que no estén subrayados]larged letter at the beginning of the text
+\usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\Roman{subsection}} % Roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Ética en la ingeniería de Software $\bullet$ Noviembre 2022}
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{\vspace{-15mm}\fontsize{24pt}{10pt}\selectfont\textbf{Ética en la
+ingeniería de Software}}
+
+\author{
+\large
+\textsc{Ana Maritza Bello Yáñez} \\
+\normalsize Centro de Investigación en Computación \\ 
+\normalsize {abelloy2022@cic.ipn.mx}
+\vspace{-5mm}
+}
+\date{}
+
+%----------------------------------------------------------------------------------------
+
 \begin{document}
-\begin{multicols}{2}
-    
-\section{Ética en la ingeniería de software}
 
-¿Qué es?
+\maketitle % Insert title
 
-¿Para qué sirve?
+\thispagestyle{fancy} % All pages have headers and footers
 
-¿Dónde y como aplicarla?
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+
+\noindent Este trabajo aborda aspectos relacionados a la ética en la Ingeniería
+de Software. También muestra algunos esfuerzos realizados por diferentes
+instituciones por definir un estándar de ética para los ingenieros de Software.
+
+\end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\begin{multicols}{2} % Two-column layout throughout the main article text
+
+\section{Introducción}
+
+La ingeniería de software es una disciplina que combina las ciencias de la
+computación, ciencias aplicadas y ciencias básicas basandose en la ingeniería.
+
+La ingeniería de software busca apoyar al desarrollo de software profesional.
+Cuando hablamos de software no nos referimos solamente a programas, sino a toda
+la documentación  asociada y a los datos de configuración requerido para hacer
+que los programas funcionen de manera correcta \cite{sommerville2005ingenieria}.
+
+
+\section{¿Qué es la ingeniería de software?}
+
+
+\section{¿Para qué sirve la ética en la ingeniería de software?}
+
+
+\section{¿Dónde y como aplicar la ética en la ingeniería de software?}
+
+
+
 
 La ética en el ámbito profesional se refiere al conjunto de normas y valores que
 mejoran el desarrollo de las actividades profesionales. Ahora, en el ámbito de
@@ -50,6 +131,10 @@ Engineers), and the British Computer Society publish a code of professional
 conduct or code of ethics. Members of these organizations undertake to follow
 that code when they sign up for membership. These codes of conduct are generally
 concerned with fundamental ethical behavior.
+
+\pagebreak
+\bibliography{../references/references.bib} 
+\bibliographystyle{unsrt}
 
 \end{multicols}
 \end{document}
