@@ -12,7 +12,13 @@
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage{booktabs} % Horizontal rules in tables
 \usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
-\usepackage[hidelinks]{hyperref}    % Vinculos [que no estén subrayados]
+\usepackage{hyperref}    % Vinculos [que no estén subrayados]
+\hypersetup{
+    colorlinks=true,
+    linkcolor=magenta,
+    urlcolor=blue,
+    citecolor=black
+    }
 
 \usepackage{lettrine} % The lettrine is the first en\usepackage[hidelinks]{hyperref}    % Vinculos [que no estén subrayados]larged letter at the beginning of the text
 \usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
@@ -109,16 +115,19 @@ utilizable.
 En el ámbito de la ingeniería de software, la ética tiene lugar cuando cualquier
 decisión tomada por los profesionales del área, durante el diseño, desarrollo,
 construcción y mantenimiento de los productos de software afecta a otras
-personas. Estas decisiónes pueden ser tomadas por individuos, equipos, gerencia
-o la profesión.
+personas de manera positiva o negativa. Estas decisiónes pueden ser tomadas por
+individuos, equipos, gerencia o la profesión.
 
-Al hacer la toma de desiciones relacionadas al software, debemos hacerlo con
-ética y basarnos en una comprensión del impacto de las decisiones.
+El software tiene presencia en la vida diaria de la mayor parte de las personas
+en todo el mundo, por este motivo debemos evaluar el impacto que nosotros y
+nuestras acciones como profesionales de la ingeniería de software tienen sobre
+la sociedad.
 
-Existen diferentes instituciones que han desarrollado códigos de ética, los
-cuales sirven para orientar las la decisiones éticas y profesional de los
-ingenieros de software. Estos códigos establecen declaraciones acerca de la
-interacción de la tecnología y los valores.
+Existen diferentes instituciones que se han preocupado por establecer un
+estándar a seguir para las personas del área. Estas instituciones han
+desarrollado códigos de ética, los cuales sirven para orientar las la decisiones
+éticas y profesional de los ingenieros de software. Estos códigos establecen
+declaraciones acerca de la interacción de la tecnología y los valores.
 
 El objetivo de estos códigos de ética es asegurar que los profesionales del área
 protejan los valores humanos en lugar de dañarlos.
@@ -127,13 +136,14 @@ Algunas de las instituciones que regulan la ética en el área de la ingeniería
 software son las siguientes:
 
 \begin{itemize}
-    \item Software Eginerring Institute
-    \item Association for Computing Machinery
-    \item The Chartered Institute for it
-    \item Institute of Electrical and Electronics Engineers
-    \item Russian Software Developer Association
-    \item Society of Software Engineers
+    \item \href{https://www.sei.cmu.edu/}{Software Enginerring Institute (SEI)}
+    \item \href{https://www.acm.org/}{Association for Computing Machinery (ACM)}
+    \item \href{https://www.bcs.org/}{The Chartered Institute for IT (BSC)} (antes British Computer Society)
+    \item \href{https://www.ieee.org/}{Institute of Electrical and Electronics Engineers (IEEE)}
+    \item \href{https://russoft.org/}{Russian Software Developer Association (RUS SOFT)}
+    \item \href{https://sse.rit.edu/}{Society of Software Engineers}
 \end{itemize}
+
 
 
 \section{¿Dónde y como aplicar la ética en la ingeniería de software?}
