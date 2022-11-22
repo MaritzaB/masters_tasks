@@ -71,9 +71,10 @@ ingeniería de Software}}
 \begin{abstract}
 
 \noindent Este trabajo aborda aspectos relacionados a la ética en la Ingeniería
-de Software. También muestra algunos esfuerzos realizados por diferentes
+de Software. También muestra los esfuerzos realizados por diferentes
 instituciones por definir un estándar de ética para profesionales de la
-ingeniería de software.
+ingeniería de software. Los códigos analizados para este trabajo son el
+\textit{SECODE} implementado por la \textit{IEEE/ACM}, 
 
 \end{abstract}
 
@@ -86,7 +87,7 @@ ingeniería de software.
 \section{Introducción}
 
 La ingeniería de software es una disciplina que combina las ciencias de la
-computación, ciencias aplicadas y ciencias básicas basandose en la ingeniería.
+computación, ciencias aplicadas y ciencias básicas basándose en la ingeniería.
 Esta disciplina busca apoyar al desarrollo de software profesional. Cuando
 hablamos de software no nos referimos solamente a programas, sino a toda la
 documentación  asociada y a los datos de configuración requerido para hacer que
@@ -98,7 +99,7 @@ en este caso dentro del campo de desarrollo de software
 \cite{yuren2013etica}.
 
 Así al hablar, de ética en el desarrollo de software, estamos considerando todos
-aquellos aspectos relacionados a como desempeñamos nuestra profesión como
+aquellos aspectos relacionados a cómo desempeñamos nuestra profesión como
 ingenieros de software.
 
 Es importante destacar que no debemos confundir la ética profesional con el
@@ -129,128 +130,6 @@ requisitos de confiabilidad, las consideraciones ambientales, los efectos
 sociales e incluso las realidades políticas. Todo esto hace que el trabajo del
 ingeniero de software profesional sea más difícil y requiera un juicio más
 subjetivo. Pero hay algunas pautas para hacer estos juicios.
-
-\section{¿Ética en la ingeniería de software?}
-
-En el ámbito de la ingeniería de software, la ética tiene lugar cuando cualquier
-decisión tomada por los profesionales del área, durante el diseño, desarrollo,
-construcción y mantenimiento de los productos de software afecta a otras
-personas de manera positiva o negativa. Estas decisiónes pueden ser tomadas por
-individuos, equipos, gerencia o la profesión.
-
-El software tiene presencia en la vida diaria de la mayor parte de las personas
-en todo el mundo, por este motivo debemos evaluar el impacto que nosotros y
-nuestras acciones como profesionales de la ingeniería de software tienen sobre
-la sociedad. Algunas personas dependen del software y esto quiere decir que
-dependen de programadores. Es entonces cuando surge la necesidad de regularizar
-los estándares del área.
-
-Existen diferentes instituciones que se han preocupado por establecer un
-estándar a seguir para las personas del área. Estas instituciones han
-desarrollado códigos de ética, los cuales sirven para orientar las la decisiones
-éticas y profesional de los ingenieros de software. Estos códigos establecen
-declaraciones acerca de la interacción de la tecnología y los valores.
-
-El objetivo de estos códigos de ética es asegurar que los profesionales del área
-protejan los valores humanos en lugar de dañarlos. Algunas de las instituciones
-que regulan la ética en el área de la ingeniería de software son las siguientes:
-
-\begin{itemize}
-    \item \href{https://www.sei.cmu.edu/}{Software Enginerring Institute (SEI)}
-    \item \href{https://www.acm.org/}{Association for Computing Machinery (ACM)}
-\item \href{https://www.bcs.org/}{The Chartered Institute for IT (BSC)} (antes
-British Computer Society)
-\item \href{https://www.ieee.org/}{Institute of Electrical and Electronics
-Engineers (IEEE)} \cite{rogerson2002software}
-    \item \href{https://russoft.org/}{Russian Software Developer Association (RUS SOFT)}
-    \item \href{https://sse.rit.edu/}{Society of Software Engineers (SSE)}
-\end{itemize}
-
-Uno de los esfuerzos más importantes para crear un código de ética para los
-profesionales de la ingeniería de software, ha sido el realizado por el
-\textit{IEEE/ACM} en 1996 \cite{gotterbarn2001software}, en el \textit{Software
-Engineering Code of Ethics and Professional Conduct (SECODE)}. Los objetivos de este
-código fueron:
-
-\begin{enumerate}
-    \item Adoptar definiciones estándar
-    \item Definir el conjunto de conocimientos requeridos y las prácticas recomendadas.
-    \item Definir estándares éticos
-    \item Definir los currículos educativos para (a) Universidad, (b) Posgrado (MS) y (c)
-educación continua (Gotterbarnb, 1996).
-\end{enumerate}
-
-El \textit{SECODE} contiene ocho principios relacionados al comportamiendo y
-desiciones hechas por ingenieros de software profesionales. El Código prescribe
-estos principios como obligaciones de cualquier persona que afirme ser o aspire
-a ser ingeniero de software \cite{vallor2015introduction}.
-
-Los principios estan resumidos de la siguiente manera:
-
-\begin{enumerate}
-\item \textbf{Público:} Los ingenieros de software deben actuar consistentemente
-con el interés público.
-\item \textbf{Cliente y empleador:} Los ingenieros de software deben actuar en
-el mejor de los intereses de su cliente o empleador y que sea consistente con el
-interés público.
-\item \textbf{Producto:} Los ingenieros de software deben asegurar que sus
-productos y modificaciones reunan los estándares profesionales más altos
-posibles.
-\item \textbf{Criterio:} Los ingenieros de software deben mantener integridad e
-independencia en su juicio profesional.
-\item \textbf{Administración:} Los líderes e ingenieros de software promoveran
-un enfoque ético para la gestión del desarrollo y mantenimiento del software.
-\item \textbf{Profesión:} Los ingenieros de software deben promover la
-integridad y reputación de la profesión de acuerdo con el interés público.
-\item \textbf{Colegas:} Los ingenieros de software deben ser justos y solidarios
-con sus colegas.
-\item \textbf{Uno mismo:} Los ingenieros de software participarán en el
-aprendizaje permanente en relación con la práctica de su profesión y promoverás
-un enfoque ético para la práctica de la profesión.
-\end{enumerate}
-
-
-El Código de Ética y Práctica Profesional de Ingeniería de Software tiene una
-serie de cláusulas relevantes para las pruebas de software. Tres cláusulas
-indicativas establecen lo siguiente:
-
-\textbf{1.03}. Aprueban el software solo si tienen la creencia bien fundada de que es
-seguro, cumple con las especificaciones, pasa las pruebas adecuadas y no
-disminuye la calidad de vida, la privacidad ni daña el medio ambiente. El efecto
-último de la obra debe ser el bien público.
-
-\textbf{3.10}. Garantizar pruebas, depuración y revisión adecuadas del software
-y los documentos relacionados en los que trabajan.
-
-\textbf{3.11}. Garantizar la documentación adecuada, incluidos los problemas
-significativos descubiertos y las soluciones adoptadas, para cualquier proyecto
-en el que trabajen.
-
-Gotterbarnb \cite{gotterbarn2001software}, plantea que existen diferentes
-problemas éticos durante las fases de desarrollo de software, por lo que las
-reglas morales varían dependiendo de las diferentes etcapas del ciclo de vida
-del desarrollo.
-
-Por ejemplo, durante la fase de obtención de requerimientos del software, el
-consentimiento informado o un acuerdo de entendimiento es crucial. durante las
-pruebas, los principios sobre no engañar y no hacer trampa son muy importantes.
-Sin embargo, en la fase de prueba, por ejemplo, si se acaban los fondos antes de
-que las pruebas se completen y no hay más posibilidad de fondos, podemos optar
-diferentes opciones; sin embargo, cualquier desición que tomemos debe estar
-condicionada por reglas morales como no engañar al cliente y actual
-profesionalmente. Aunque de acuerdo al tipo de software desarrollado también
-pueden entrar reglas como que no cause dolor y que no mate.
-
-
-\section{Beneficios en la adopción de un código de ética en la ingeniería de software.}
-
-Existen beneficios en adoptar un código de ética tanto para ingenieros de
-software como para empresas y organizaciones que se dediquen al área. Por
-ejemplo, promovemos una cultura de desarrollo de software de calidad, lo cual
-atraerá más colegas que deseen participar. Ganaremos confianza pública y
-desarrollaremos una imagen profesional que cumple con los estándares de calidad
-del software.
-
 
 \section{¿Dónde y como aplicar la ética en la ingeniería de software?}
 
@@ -350,6 +229,127 @@ Machine Learning
 
 ¿Quien toma responsabilidad por los programas cuando ellos son autónomos?
 
+
+\section{¿Ética en la ingeniería de software?}
+
+En el ámbito de la ingeniería de software, la ética tiene lugar cuando cualquier
+decisión tomada por los profesionales del área, durante el diseño, desarrollo,
+construcción y mantenimiento de los productos de software afecta a otras
+personas de manera positiva o negativa. Estas decisiónes pueden ser tomadas por
+individuos, equipos, gerencia o la profesión.
+
+El software tiene presencia en la vida diaria de la mayor parte de las personas
+en todo el mundo, por este motivo debemos evaluar el impacto que nosotros y
+nuestras acciones como profesionales de la ingeniería de software tienen sobre
+la sociedad. Algunas personas dependen del software y esto quiere decir que
+dependen de programadores. Es entonces cuando surge la necesidad de regularizar
+los estándares del área.
+
+Existen diferentes instituciones que se han preocupado por establecer un
+estándar a seguir para las personas del área. Estas instituciones han
+desarrollado códigos de ética, los cuales sirven para orientar las la decisiones
+éticas y profesional de los ingenieros de software. Estos códigos establecen
+declaraciones acerca de la interacción de la tecnología y los valores.
+
+El objetivo de estos códigos de ética es asegurar que los profesionales del área
+protejan los valores humanos en lugar de dañarlos. Algunas de las instituciones
+que regulan la ética en el área de la ingeniería de software son las siguientes:
+
+\begin{itemize}
+    \item \href{https://www.sei.cmu.edu/}{Software Enginerring Institute (SEI)}
+    \item \href{https://www.acm.org/}{Association for Computing Machinery (ACM)}
+\item \href{https://www.bcs.org/}{The Chartered Institute for IT (BSC)} (antes
+British Computer Society)
+\item \href{https://www.ieee.org/}{Institute of Electrical and Electronics
+Engineers (IEEE)} \cite{rogerson2002software}
+    \item \href{https://russoft.org/}{Russian Software Developer Association (RUS SOFT)}
+    \item \href{https://sse.rit.edu/}{Society of Software Engineers (SSE)}
+\end{itemize}
+
+Uno de los esfuerzos más importantes para crear un código de ética para los
+profesionales de la ingeniería de software, ha sido el realizado por el
+\textit{IEEE/ACM} en 1996 \cite{gotterbarn2001software}, en el \textit{Software
+Engineering Code of Ethics and Professional Conduct (SECODE)}. Los objetivos de este
+código fueron:
+
+\begin{enumerate}
+    \item Adoptar definiciones estándar
+    \item Definir el conjunto de conocimientos requeridos y las prácticas recomendadas.
+    \item Definir estándares éticos
+    \item Definir los currículos educativos para (a) Universidad, (b) Posgrado (MS) y (c)
+educación continua (Gotterbarnb, 1996).
+\end{enumerate}
+
+El \textit{SECODE} contiene ocho principios relacionados al comportamiendo y
+desiciones hechas por ingenieros de software profesionales. El Código prescribe
+estos principios como obligaciones de cualquier persona que afirme ser o aspire
+a ser ingeniero de software \cite{vallor2015introduction}.
+
+Los principios estan resumidos de la siguiente manera:
+
+\begin{enumerate}
+\item \textbf{Público:} Los ingenieros de software deben actuar consistentemente
+con el interés público.
+\item \textbf{Cliente y empleador:} Los ingenieros de software deben actuar en
+el mejor de los intereses de su cliente o empleador y que sea consistente con el
+interés público.
+\item \textbf{Producto:} Los ingenieros de software deben asegurar que sus
+productos y modificaciones reunan los estándares profesionales más altos
+posibles.
+\item \textbf{Criterio:} Los ingenieros de software deben mantener integridad e
+independencia en su juicio profesional.
+\item \textbf{Administración:} Los líderes e ingenieros de software promoveran
+un enfoque ético para la gestión del desarrollo y mantenimiento del software.
+\item \textbf{Profesión:} Los ingenieros de software deben promover la
+integridad y reputación de la profesión de acuerdo con el interés público.
+\item \textbf{Colegas:} Los ingenieros de software deben ser justos y solidarios
+con sus colegas.
+\item \textbf{Uno mismo:} Los ingenieros de software participarán en el
+aprendizaje permanente en relación con la práctica de su profesión y promoverás
+un enfoque ético para la práctica de la profesión.
+\end{enumerate}
+
+
+El Código de Ética y Práctica Profesional de Ingeniería de Software tiene una
+serie de cláusulas relevantes para las pruebas de software
+\cite{rogerson2002software}. Tres cláusulas indicativas establecen lo siguiente:
+
+\textbf{1.03}. Aprueban el software solo si tienen la creencia bien fundada de que es
+seguro, cumple con las especificaciones, pasa las pruebas adecuadas y no
+disminuye la calidad de vida, la privacidad ni daña el medio ambiente. El efecto
+último de la obra debe ser el bien público.
+
+\textbf{3.10}. Garantizar pruebas, depuración y revisión adecuadas del software
+y los documentos relacionados en los que trabajan.
+
+\textbf{3.11}. Garantizar la documentación adecuada, incluidos los problemas
+significativos descubiertos y las soluciones adoptadas, para cualquier proyecto
+en el que trabajen.
+
+Por otro lado, Gotterbarnb \cite{gotterbarn2001software}, plantea que existen
+diferentes problemas éticos durante las fases de desarrollo de software, por lo
+que las reglas morales varían dependiendo de las diferentes etapas del ciclo de
+vida del desarrollo.
+
+Por ejemplo, durante la fase de obtención de requerimientos del software, el
+consentimiento informado o un acuerdo de entendimiento es crucial. durante las
+pruebas, los principios sobre no engañar y no hacer trampa son muy importantes.
+Sin embargo, en la fase de prueba, por ejemplo, si se acaban los fondos antes de
+que las pruebas se completen y no hay más posibilidad de fondos, podemos optar
+diferentes opciones; sin embargo, cualquier desición que tomemos debe estar
+condicionada por reglas morales como no engañar al cliente y actual
+profesionalmente. Aunque de acuerdo al tipo de software desarrollado también
+pueden entrar reglas como que no cause dolor y que no mate.
+
+
+\subsection{Beneficios en la adopción de un código de ética en la ingeniería de software.}
+
+Existen beneficios en adoptar un código de ética tanto para ingenieros de
+software como para empresas y organizaciones que se dediquen al área. Por
+ejemplo, promovemos una cultura de desarrollo de software de calidad, lo cual
+atraerá más colegas que deseen participar. Ganaremos confianza pública y
+desarrollaremos una imagen profesional que cumple con los estándares de calidad
+del software.
 
 
 
