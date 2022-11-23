@@ -1,5 +1,6 @@
 reports: \
-	reports/pert_examples.pdf
+	reports/ethics_software_engineer.pdf
+#	reports/pert_examples.pdf
 
 .PHONY: \
 	all \
@@ -29,7 +30,7 @@ define lint
 endef
 
 reports/ethics_software_engineer.pdf: reports/ethics_software_engineer.tex
-	$(renderPresentation)
+	$(renderLatex)
 
 reports/pert_examples.pdf:	reports/pert_examples.tex
 	$(renderPresentation)

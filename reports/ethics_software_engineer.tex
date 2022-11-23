@@ -1,0 +1,389 @@
+\documentclass[twoside]{article}
+
+\usepackage{lipsum} % Package to generate dummy text throughout this template
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage{multicol} % Used for the two-column layout of the document
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+\usepackage{hyperref}    % Vinculos [que no estén subrayados]
+\hypersetup{
+    colorlinks=true,
+    linkcolor=magenta,
+    urlcolor=blue,
+    citecolor=black
+    }
+
+\usepackage{lettrine} % The lettrine is the first en\usepackage[hidelinks]{hyperref}    % Vinculos [que no estén subrayados]larged letter at the beginning of the text
+\usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\Roman{subsection}} % Roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Ética en la ingeniería de Software $\bullet$ Noviembre 2022}
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{\vspace{-15mm}\fontsize{24pt}{10pt}\selectfont\textbf{Ética en la
+ingeniería de Software}}
+
+\author{
+\large
+\textsc{Ana Maritza Bello Yáñez} \\
+\normalsize Centro de Investigación en Computación \\ 
+\normalsize {abelloy2022@cic.ipn.mx}
+\vspace{-5mm}
+}
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Insert title
+
+\thispagestyle{fancy} % All pages have headers and footers
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+
+\noindent Este trabajo aborda aspectos relacionados a la ética en la Ingeniería
+de Software. También muestra los esfuerzos realizados por diferentes
+instituciones por definir un estándar de ética para profesionales de la
+ingeniería de software. Los códigos analizados para este trabajo son el
+\textit{SECODE} implementado por la \textit{IEEE/ACM}, y algunos análisis hechos
+por diferentes autores acerca del impacto que podemos generar en la sociedad.
+
+\end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\begin{multicols}{2} % Two-column layout throughout the main article text
+
+\section{Introducción}
+
+La ingeniería de software es una disciplina que combina las ciencias de la
+computación, ciencias aplicadas y ciencias básicas basándose en la ingeniería.
+Esta disciplina busca apoyar al desarrollo de software profesional. Cuando
+hablamos de software no nos referimos solamente a programas, sino a toda la
+documentación  asociada y a los datos de configuración requerido para hacer que
+los programas funcionen de manera correcta \cite{sommerville2005ingenieria}.
+
+La ética profesional, a su vez, consiste en un conjunto de saberes, creencias,
+normas y valores que rigen el actuar de las personas en el campo profesional, y
+en este caso dentro del campo de desarrollo de software
+\cite{yuren2013etica}.
+
+Así al hablar, de ética en el desarrollo de software, estamos considerando todos
+aquellos aspectos relacionados a cómo desempeñamos nuestra profesión como
+ingenieros de software.
+
+Es importante destacar que no debemos confundir la ética profesional con el
+cumplimiento de una ley.
+
+\section{¿Qué es la ingeniería de software?}
+
+La ingeniería de software, es una disciplina de la ingeniería que se interesa
+por todos los aspectos de la producción de software, con el objetivo de que el
+producto final (programas de cómputo y documentación asociada) tenga un
+funcionamiento correcto. Es decir, que se le entregue al usuario un software con
+la funcionalidad y desempeño requeridos, además de que sea confiable y
+utilizable.
+
+La ingeniería de software es una ciencia aplicada. Todos los productos de la
+ingeniería de software involucran personas, por lo que en cualquier etapa del
+desarrollo del producto se debe tener en cuenta a los usuarios de los productos
+intermedios y finales. Los ingenieros de software tienen obligaciones con los
+usuarios de sus productos, que incluyen no solo el sistema implementado, sino
+también otros productos, como requisitos, planes de gestión de proyectos de
+software, especificaciones, diseños, documentación, conjuntos de pruebas,
+programas, manuales de usuario y materiales de capacitación.
+
+Al desarrollar estos productos de ingeniería de software, cada decisión es un
+compromiso que se ve afectado por restricciones tales como el presupuesto
+disponible, las necesidades de los clientes, el software disponible, los
+requisitos de confiabilidad, las consideraciones ambientales, los efectos
+sociales e incluso las realidades políticas. Todo esto hace que el trabajo del
+ingeniero de software profesional sea más difícil y requiera un juicio más
+subjetivo. Pero hay algunas pautas para hacer estos juicios.
+
+\section{¿Dónde y como aplicar la ética en la ingeniería de software?}
+
+El software está presente en la vida diaria de las personas, y muchas de ellas
+dependen del software. Entonces, la pregunta es: ¿Cómo nos impacta esto? ó mejor
+dicho, como ingenieros de software: ¿Qué impacto tienen nuestras acciones en la
+sociedad?
+
+¿Qué nos asegura que el software que estamos usando fue construido de la mejor
+manera?
+
+Por supuesto que nos gustaría saber que el software de nuestros automoviles fue
+bien desarrollado al igual que el software de los aviones en los que volamos.
+
+Otras preguntas que nos conciernen respecto a este tema son:
+
+¿Quién tiene la culpa si un carro o avión, cuyo sistema es autónomo, tiene un
+accidente?
+
+¿Quién se aseguró de que ese sistema es de calidad?
+
+¿Qué es el software de calidad?, y ¿qué significa que el software esté bien hecho?
+
+El software de calidad es aquel cuyos programadores saben que funciona de
+acuerdo a lo que él cliente pidió, que trabaja de manera adecuada, y que pueden
+ajustar de manera fácil. Es software que es fácil de cambiar y que no implica un
+alto costo \cite{CMartin2022EthicsManifesto}.
+
+Que el software esté bien hecho significa que es un software que trabaja sin el
+riesgo de que ocurra algún comportamiento extraño, o que pueda fallar en
+cualquier momento, o se tenga que estar reiniciando cada cierto tiempo, etc.
+
+Ahora, cualquier software que esté conectado a internet es vulnerable de ataques
+y usarlo también para hacer ataques.
+
+Ahora, regresando a la pregunta del principio, podemos causar dos tipos de
+impacto negativo: daños accidentales y daños intencionales.
+
+\subsection{Daños accidentales}
+
+Son aquellos a los que no nos anticipamos o cuyas fallas fueron omitidas. Por
+ejemplo:
+
+\begin{itemize}
+\item Problemas de seguridad. Por ejemplo las vulnerabilidade en el software.
+\item Bugs, comportamientos no esperados: El sistema se cierra cada que el
+usuario ejecuta una acción.
+\item Algoritmos incorrectos: Nos dieron una especificación que no implementamos
+correctamente y eso produjo un fallo. Por ejemplo activar un servicio a un
+usuario por el cual no ha pagado. Por ejemplo el bug del 2000, muchos
+programadores que no pensaron que su código fuera a llegar hasta ese año.
+\end{itemize}
+
+\subsection{Daños intencionales}
+
+Son reglas de negocio que hacen daños a propósito. Algunos ejemplos son los
+siguientes:
+
+\begin{itemize}
+\item Desición consciente de la gerencia de una empresa, de un equipo de
+ingeniería o de ambas. Por ejemplo el
+\href{https://repositorio.comillas.edu/rest/bitstreams/295635/retrieve}{caso
+Volkswagen}, donde la empresa fabricó autos que eludían la norma estadounidense
+de emisión de gases.
+\item Estos daños tienen responsabilidad penal.
+\item Privacidad de datos. Por ejemplo la
+\href{https://elpais.com/mexico/2022-10-01/una-masiva-filtracion-expone-el-poder-del-ejercito-mexicano-en-la-vida-publica.html}{filtración
+de datos de la Secretaría de Defensa Nacional} en septiembre de 2022, por un
+grupo de hackers llamados \textit{los guacamayos}.
+\item
+\href{https://www.netflix.com/es/title/81254224#:~:text=Este%20documental%20dramatizado%20analiza%20la,las%20herramientas%20creadas%20por%20ellos.&text=Ve%20todo%20lo%20que%20quieras.&text=De%20Jeff%20Orlowski%2C%20director%20del,'%2C%20ganador%20del%20premio%20Emmy.}
+{El dilema de las redes sociales}. Los algoritmos de las redes sociales
+están diseñados para que la gente pase más tiempo en ellas, ¿alguien debería de
+regular esto?.
+\end{itemize}
+
+\subsection{Otros casos de estudio}
+
+Otro caso de estudio de falla en sfotware, fue el caso del helicóptero Chinook
+ZD576. Este se estrelló en Mull of Kintyre el viernes 2 de junio de 1994,  y
+mató a 29 personas. El miércoles 6 de febrero de 2002, el informe del comité de
+la Cámara de los Lores encontró que había evidencia que sugería que errores de
+software y hardware habían causado el accidente y no un error del piloto como se
+había proclamado originalmente en la investigación oficial. El informe afirmaba
+que "está claro que en el momento del accidente todavía había problemas sin
+resolver en relación con el sistema Fadec [software] de los Chinook MK2", y
+"consideramos que las conclusiones de Boeing [basadas en sus simulaciones por
+computadora] no pueden ser considerado exacto” \cite{collins2002software}. Se
+llega a la conclusión de que los procedimientos de prueba utilizados no eran lo
+suficientemente rigurosos.
+
+
+\section{¿Ética en la ingeniería de software?}
+
+En el ámbito de la ingeniería de software, la ética tiene lugar cuando cualquier
+decisión tomada por los profesionales del área, durante el diseño, desarrollo,
+construcción y mantenimiento de los productos de software afecta a otras
+personas de manera positiva o negativa. Estas decisiónes pueden ser tomadas por
+individuos, equipos, gerencia o la profesión.
+
+El software tiene presencia en la vida diaria de la mayor parte de las personas
+en todo el mundo, por este motivo debemos evaluar el impacto que nosotros y
+nuestras acciones como profesionales de la ingeniería de software tienen sobre
+la sociedad. Algunas personas dependen del software y esto quiere decir que
+dependen de programadores. Es entonces cuando surge la necesidad de regularizar
+los estándares del área.
+
+Existen diferentes instituciones que se han preocupado por establecer un
+estándar a seguir para las personas del área. Estas instituciones han
+desarrollado códigos de ética, los cuales sirven para orientar las decisiones
+éticas y profesionales de los ingenieros de software. Estos códigos establecen
+declaraciones acerca de la interacción de la tecnología y los valores.
+
+El objetivo de estos códigos de ética es asegurar que los profesionales del área
+protejan los valores humanos en lugar de dañarlos. Algunas de las instituciones
+que regulan la ética en el área de la ingeniería de software son las siguientes:
+
+\begin{itemize}
+    \item \href{https://www.sei.cmu.edu/}{Software Engineering Institute (SEI)}
+    \item \href{https://www.acm.org/}{Association for Computing Machinery (ACM)}
+\item \href{https://www.bcs.org/}{The Chartered Institute for IT (BSC)} (antes
+British Computer Society)
+\item \href{https://www.ieee.org/}{Institute of Electrical and Electronics
+Engineers (IEEE)} \cite{rogerson2002software}
+    \item \href{https://russoft.org/}{Russian Software Developer Association (RUS SOFT)}
+    \item \href{https://sse.rit.edu/}{Society of Software Engineers (SSE)}
+\end{itemize}
+
+Uno de los esfuerzos más importantes para crear un código de ética para los
+profesionales de la ingeniería de software, ha sido el realizado por el
+\textit{IEEE/ACM} en 1996 \cite{gotterbarn2001software}, en el \textit{Software
+Engineering Code of Ethics and Professional Conduct (SECODE)}. Los objetivos de este
+código fueron:
+
+\begin{enumerate}
+    \item Adoptar definiciones estándar
+    \item Definir el conjunto de conocimientos requeridos y las prácticas recomendadas.
+    \item Definir estándares éticos
+    \item Definir los currículos educativos para (a) Universidad, (b) Posgrado (MS) y (c)
+educación continua (Gotterbarnb, 1996).
+\end{enumerate}
+
+El \textit{SECODE} contiene ocho principios relacionados al comportamiendo y
+desiciones hechas por ingenieros de software profesionales. El Código prescribe
+estos principios como obligaciones de cualquier persona que afirme ser o aspire
+a ser ingeniero de software \cite{vallor2015introduction}.
+
+Los principios estan resumidos de la siguiente manera:
+
+\begin{enumerate}
+\item \textbf{Público:} Los ingenieros de software deben actuar consistentemente
+con el interés público.
+\item \textbf{Cliente y empleador:} Los ingenieros de software deben actuar en
+el mejor de los intereses de su cliente o empleador y que sea consistente con el
+interés público.
+\item \textbf{Producto:} Los ingenieros de software deben asegurar que sus
+productos y modificaciones reúnan los estándares profesionales más altos
+posibles.
+\item \textbf{Criterio:} Los ingenieros de software deben mantener integridad e
+independencia en su juicio profesional.
+\item \textbf{Administración:} Los líderes e ingenieros de software promoveran
+un enfoque ético para la gestión del desarrollo y mantenimiento del software.
+\item \textbf{Profesión:} Los ingenieros de software deben promover la
+integridad y reputación de la profesión de acuerdo con el interés público.
+\item \textbf{Colegas:} Los ingenieros de software deben ser justos y solidarios
+con sus colegas.
+\item \textbf{Uno mismo:} Los ingenieros de software participarán en el
+aprendizaje permanente en relación con la práctica de su profesión y promoverás
+un enfoque ético para la práctica de la profesión.
+\end{enumerate}
+
+
+El Código de Ética y Práctica Profesional de Ingeniería de Software tiene una
+serie de cláusulas relevantes para las pruebas de software
+\cite{rogerson2002software}. Tres cláusulas indicativas establecen lo siguiente:
+
+\textbf{1.03}. Aprueban el software solo si tienen la creencia bien fundada de que es
+seguro, cumple con las especificaciones, pasa las pruebas adecuadas y no
+disminuye la calidad de vida, la privacidad ni daña el medio ambiente. El efecto
+último de la obra debe ser el bien público.
+
+\textbf{3.10}. Garantizar pruebas, depuración y revisión adecuadas del software
+y los documentos relacionados en los que trabajan.
+
+\textbf{3.11}. Garantizar la documentación adecuada, incluidos los problemas
+significativos descubiertos y las soluciones adoptadas, para cualquier proyecto
+en el que trabajen. \\
+\\
+
+Por otro lado, Gotterbarnb \cite{gotterbarn2001software}, plantea que existen
+diferentes problemas éticos durante las fases de desarrollo de software, por lo
+que las reglas morales varían dependiendo de las diferentes etapas del ciclo de
+vida del desarrollo.
+
+Por ejemplo, durante la fase de obtención de requerimientos del software, el
+consentimiento informado o un acuerdo de entendimiento es crucial. Durante las
+pruebas, los principios sobre no engañar y no hacer trampa son muy importantes.
+Sin embargo, en la fase de prueba, por ejemplo, si se acaban los fondos antes de
+que las pruebas se completen y no hay más posibilidad de fondos, podemos optar
+diferentes opciones; sin embargo, cualquier decisión que tomemos debe estar
+condicionada por reglas morales como no engañar al cliente y actuar
+profesionalmente. Aunque de acuerdo al tipo de software desarrollado también
+pueden entrar reglas como que no cause dolor y que no mate.
+
+
+\subsection{Beneficios en la adopción de un código de ética en la ingeniería de software.}
+
+Existen beneficios en adoptar un código de ética tanto para ingenieros de
+software como para empresas y organizaciones que se dediquen al área. Por
+ejemplo, promovemos una cultura de desarrollo de software de calidad, lo cual
+atraerá más colegas que deseen participar. Ganaremos confianza pública y
+desarrollaremos una imagen profesional que cumple con los estándares de calidad
+del software.
+
+
+
+\pagebreak
+
+\section{Conclusiones}
+
+\begin{itemize}
+\item Dada la enorme cantidad de gente en el mundo que utiliza el software y
+que este forma parte de la vida diaria de las personas, es nuestra
+responsabilidad como profesionales del desarrollo de software, generar productos
+que cubran las necesidades de las personas y evitar que este pueda tener un
+impacto negativo sobre la sociedad.
+
+\item El código de ética del \textit{IEEE/ACM} es solo una guía que pretende
+orientar a las personas profesionales de la ingeniería de software a tomar
+mejores decisiones con el fin de minimizar el impacto negativo que tenemos en la
+sociedad.
+
+
+\end{itemize}
+
+\subsection{¿Qué acciones podemos tomar como ingenieros de software?}
+
+Algunas acciones que podríamos llevar a cabo de manera personal y organizacional
+son:
+
+\begin{itemize}
+\item Mejorar nuestras prácticas de ingeniería: Seguridad informática, trabajo
+en equipo, planificación, pruebas de software automatizadad, calidad del código
+y arquitectura, escalabilidad.
+\item Disciplina, profesionalismo, mejora continua.
+\item Estudio de la moral, y ética profesional.
+\item Comprender y evaluar el impacto de nuestras acciones como ingenieros de
+software en la sociedad y la economía.
+\end{itemize}
+
+\pagebreak
+\bibliography{../references/references.bib} 
+\bibliographystyle{unsrt}
+
+\end{multicols}
+\end{document}

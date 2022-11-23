@@ -1,0 +1,152 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper]{geometry}
+%\geometry{top=1.5cm, bottom=1.0cm, left=1.25cm, right=1.25cm}
+\usepackage{pdflscape}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes.multipart}
+\usepackage{csvsimple}
+\usepackage{pgfplotstable,booktabs}
+\pgfplotsset{compat=1.16}
+
+\begin{document}
+\title{Ejercicios de PERT}
+\author{Ana Maritza Bello Yañez}
+\maketitle
+%\setlength{\parindent}{0pt}
+%\setlength{\parskip}{1em}
+
+
+\section{Ejercicio 1}
+La empresa SALMA está preparando la planificación, aplicando la técnica PERT, de
+un proyecto informático, cuyas actividades se indican en la tabla inferior, así
+como sus precedentes y la duración expresada en semanas (optimista, pesimista y
+más probable):  \\
+\\
+
+
+\begin{center}
+\begin{tabular}{cccccccc}
+\input{tables/statistics_PERT_01.tex}
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+    \item Diseño completo del grafo, incluyendo holguras y camino crítico.
+    
+    \includegraphics[scale=0.3]{../figures/pert_01.png}
+
+    \item Matriz asociada al grafo
+    
+    \begin{center}
+    \begin{tabular}{ccccccccccccccc}
+          & A & B & C & D & E & F & G & H & I & J & K & L & M \\
+      \hline
+        A   & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        B   & \textcolor{red}{1} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        C   & 0 & \textcolor{red}{1} & 0 & 0 & 0 & 0 & 0 & \textcolor{red}{1}& 0 & 0 & 0 & 0 & 0 \\
+        D   & 0 & 0 & 0 & 0& 0& 0& 0& 0& 0& 0& 0& 0& 0 \\
+        E   & 0 & 0 & 0 & 0& 0& 0& \textcolor{red}{1}& 0& 0& 0& 0& 0& 0 \\
+        F   & 0 & 0 & 0 & 0& \textcolor{red}{1}& 0& 0& 0& 0& 0& 0& 0& 0 \\
+        G   & 0 & 0 & 0 & \textcolor{red}{1}& 0& 0& 0& 0& 0& 0& 0& 0& 0 \\
+        H   & 0 & 0 & 0 & 0& 0& 0& \textcolor{red}{1}& 0& 0& 0& 0& 0& 0 \\
+        I   & 0 & 0 & 0 & \textcolor{red}{1}& 0& 0& 0& 0& 0& 0& 0& 0& 0 \\
+        J   & 0 & 0 & 0 & 0& 0& 0& 0& 0& \textcolor{red}{1}& 0& 0& 0& 0 \\
+        K   & 0 & 0 & 0 & \textcolor{red}{1}& 0& 0& 0& 0& 0& 0& 0& 0& 0 \\
+        L   & 0 & 0 & 0 & 0& 0& 0& 0& 0& 0& \textcolor{red}{1}& \textcolor{red}{1}& 0& 0 \\
+        M   & 0 & 0 & \textcolor{red}{1} & 0& 0& 0& 0& 0& 0& 0& 0& \textcolor{red}{1}& 0 \\
+    \end{tabular}
+  \end{center}
+
+    \item ¿Qué efectos tendrán sobre el proyecto los siguientes eventos:
+
+    - La actividad A se retrasa 9 semanas
+
+No afectaría al proyecto puesto que para terminar la actividad A, tenemos
+justamente 9 semanas de holgura.
+
+    - La actividad D se retrasa 3 semanas
+
+Dado que la actividad se encuentra en el camino crítico, retrasaría todo el
+proyecto 3 semanas.
+
+    - La actividad L se reduce en 1 semana
+
+Esta actividad también se encuentra en el camino crítico y no tiene holgura, por
+lo que su retraso tendría como consecuencia el retraso de todo el proyecto.
+
+\end{itemize}
+
+\pagebreak
+\section{Ejercicio 2}
+
+La empresa CLARK S.A. de C.V. debe reubicar sus oficinas hacia nuevas
+instalaciones en la zona norte con el objetivo de brindar una atención
+especializada a sus clientes, el director debe preparar un informe detallado de
+las labores y el tiempo de cada uno para el traslado, incluyendo rutas críticas
+y estimaciones de tiempos. El director ha desarrollado el proyecto con 11
+actividades que se presentan en el siguiente cuadro: \\
+\\
+\begin{center}
+  \begin{tabular}{ccccccccc}
+      \input{tables/statistics_PERT_02.tex}
+  \end{tabular}
+\end{center}
+
+\begin{itemize}
+    \item Diseño completo del grafo, incluyendo holguras y camino crítico.
+
+    \includegraphics[scale=0.3]{../figures/pert_02.png}
+
+    \item Matriz de encaminamientos asociada al grafo
+
+    \begin{center}
+      \begin{tabular}{c|cccccccccc}
+             & A & B & C & D & E & F & G & H & I & J \\
+        \hline
+          A  & 0& 0& 0& 0& 0& 0& 0& 0& 0 & 0 \\
+          B  & 0& 0& 0& 0& 0& 0& 0& 0& 0 & 0 \\ 
+          C  & 0& \textcolor{red}{1}& 0& 0& 0& 0& 0& 0& 0 & 0 \\ 
+          D  & \textcolor{red}{1}& 0& \textcolor{red}{1}& 0& 0& 0& 0& 0& 0 & 0 \\ 
+          E  & 0& 0& 0& \textcolor{red}{1}& 0& 0& 0& 0& 0 & 0 \\
+          F  & 0& 0& \textcolor{red}{1}& 0& 0& 0& 0& 0& 0 & 0 \\
+          G  & 0& 0& 0& 0& 0& \textcolor{red}{1}& 0& 0& 0 & 0 \\
+          H  & 0& 0& 0& 0& 0& \textcolor{red}{1}& 0& 0& 0 & 0 \\
+          I  & 0& \textcolor{red}{1}& 0& 0& 0& 0& 0& 0& 0 & 0 \\
+          J  & 0& 0& 0& 0& \textcolor{red}{1}& 0& \textcolor{red}{1}& \textcolor{red}{1}& 0 & 0 
+      \end{tabular}
+    \end{center}
+
+    \item \textbf{Duración estimada del proyecto en días}
+
+    18 días
+
+    \item Responder las siguientes preguntas relacionadas con el proyecto:
+
+    - \textbf{¿Cuál será la probabilidad de terminar el proyecto hasta 18 días?}
+
+      La probabilidad es del 50\%
+      (ver la siguiente tabla)
+
+    - \textbf{¿Cuál será la probabildad de terminar el proyecto hasta 25 días?}
+      
+      La probabilidad es del 100\%
+      (ver la siguiente tabla)
+
+- \textbf{¿Cuál será la duración del proyecto para una probabilidad de finalización del
+95\%?}
+
+Sería de 21 días (ver la siguiente tabla)
+
+\begin{center}
+  \begin{tabular}{ccccccc}
+    \input{tables/statistics_proba_PERT_2.tex}
+  \end{tabular}
+\end{center}
+    
+\end{itemize}
+
+\end{document}
+    
