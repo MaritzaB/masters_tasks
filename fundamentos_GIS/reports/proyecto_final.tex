@@ -1,5 +1,5 @@
-% LaTeX Template for short student reports.
-% Citations should be in bibtex format and go in references.bib
+% LaTeX Template for short student reports. Citations should be in bibtex format
+% and go in references.bib
 \documentclass[a4paper, 11pt]{article}
 \usepackage[top=3cm, bottom=3cm, left = 2cm, right = 2cm]{geometry} 
 \geometry{a4paper} 
@@ -9,15 +9,24 @@
 \usepackage{amsmath,amssymb}  
 \usepackage{bm}  
 \usepackage[pdftex,bookmarks,colorlinks,breaklinks]{hyperref}  
-%\hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} % black links, for printed output
+%\hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} %
+%black links, for printed output
 \usepackage{memhfixc} 
 \usepackage{pdfsync}  
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \usepackage[spanish, es-tabla]{babel}
+\usepackage{color}
+\usepackage{upquote,listings}
+\usepackage{pdflscape}
 
-\title{Sample Report}
-\author{Author McWriterson}
+\input{custom/sql_stylo}
+
+\title{ Análisis geo-espacial de datos de gps de trayectorias de Albatros de
+Layssan. \\
+Proyecto final de fundamentos de Sistemas de Información Geográfica \\
+}
+\author{Ana Maritza Bello Yáñez \\ Profesora: Dra. Magdalena Saldaña}
 %\date{}
 
 \begin{document}
@@ -26,43 +35,41 @@
 
 \section{Introducción}
 
-My project was about \ldots
+\subsection{Herramientas utilizadas}
 
-I developed a system to \ldots
-
-We did some experiments to find out \ldots
-
-The main results were \ldots
-
-\pagebreak
+- QGIS
+- Postgress
+- Postgis
 
 \section{Resumen}
 
-I did some background reading in the following areas \ldots
-
-
-\pagebreak
 
 \section{Objetivos del proyecto}
 
-Se requiere de un proyecto que englobe dos elementos principales, una base de
-datos y una representación cartográfica derivada de algún elemento de la base de
-datos.
+Se requiere de un proyecto que englobe los siguientes elementos:
 
-Los datos deben representar información sobre un tema en concreto y parte de
-ellos debe provenir de la base de datos. La base debe tener al menos dos tablas.
+$\text{\rlap{$\checkmark$}}\square$ Creación de una base de datos sobre un tema
+en concreto.
 
-A partir de los datos se generará una representación cartográfica en la que se
-apliquen al menos dos elementos de geo-procesamiento de los vistos en clase.
+$\text{\rlap{$\checkmark$}}\square$ Base de datos con al menos dos tablas.
 
-\pagebreak
+$\text{\rlap{$\checkmark$}}\square$ Representación cartográfica derivada de
+algún elemento de la base de datos.
+
+$\text{\rlap{$\checkmark$}}\square$ Aplicar al menos dos elementos de
+geo-procesamiento.
+
 
 \section{Desarrollo}
 
+\subsection{Creación de la base de datos de Trayectorias de Albatros de Layssan}
+
+\lstinputlisting[language=SQL,   
+framesep=10pt, framextopmargin=10pt] {../src/create_table_albatross.sql}
+
 \section{Conclusiones y trabajo a futuro}
 
-From our experiments we can conclude that \ldots
 
-% \bibliographystyle{abbrv}
-% \bibliography{references}  % need to put bibtex references in references.bib 
+% \bibliographystyle{abbrv} \bibliography{references}  % need to put bibtex
+% references in references.bib 
 \end{document}
