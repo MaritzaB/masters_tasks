@@ -9,7 +9,7 @@
 \usepackage{amsmath,amssymb}  
 \usepackage{bm}  
 \usepackage[pdftex,bookmarks,colorlinks,breaklinks]{hyperref}  
-%\hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} %
+\hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} %
 %black links, for printed output
 \usepackage{memhfixc} 
 \usepackage{pdfsync}  
@@ -19,6 +19,7 @@
 \usepackage{color}
 \usepackage{upquote,listings}
 \usepackage{pdflscape}
+\usepackage{hyperref} 
 
 \input{custom/sql_stylo}
 
@@ -33,9 +34,11 @@ Proyecto final de fundamentos de Sistemas de Información Geográfica \\
 \maketitle
 \tableofcontents
 
+\section{Resumen}
+
 \section{Objetivos del proyecto}
 
-Se requiere de un proyecto que englobe los siguientes elementos:
+Se requiere que proyecto que englobe los siguientes elementos:
 
 $\text{\rlap{$\checkmark$}}\square$ Creación de una base de datos sobre un tema
 en concreto.
@@ -47,7 +50,6 @@ algún elemento de la base de datos.
 
 $\text{\rlap{$\checkmark$}}\square$ Aplicar al menos dos elementos de
 geo-procesamiento.
-
 
 
 \section{Introducción}
@@ -91,30 +93,66 @@ manera:
 \end{table}
 
 
-\subsection{Herramientas utilizadas}
-
-\subsubsection{QGIS}
-QGIS es un Sistema de Información Geográfica profesional de código abierto, que
-posibilita la cración, visualización, análisis, edición y publicación de
-información geoespacial.
-
-Algunas de las ventajas que nos ofrece QGIS, y que estaremos utilizando
-particularmente para esta practica son:
-
-\begin{itemize}
-    \item Soporte para la extensión espacial de PostgreSQL, PostGIS.
-    \item Manejo de archivos vectoriales shapefile.
-    \item Soporte para archivos raster.
-\end{itemize}
-
-\subsubsection{Postgress}
-
-\subsubsection{Postgis}
-
-\section{Resumen}
-
-
 \section{Desarrollo}
+
+\subsection{Datos}
+
+Los datos utilizados en esta pŕactica corresponden a las trayectorias de
+albatros de Laysan, registradas mediantes dispositivos GPS y GLS, de 47
+individuos durante los años 2014 a 2018.
+
+Los GPS se programaron para registrar simultáneamente la posición y la velocidad
+del albatros cada 20 minutos, lo que permitió grabar de forma contínua durante
+12 a 15 días en algunos casos y enotros de 60 a 70 días, durante la etapa
+reproductiva. \cite{hernandez2019ecologia}.
+
+Para conocer los hábitos migratorios y zonas de distribución en temporada no
+reproductiva se instalaron los dispositivos GLS, los cuales fueron recuperados
+por lo menos un año después de su instalación.
+
+Los datos crudos se encuentran en formato CSV y contienen los siguientes campos
+o atributos:
+
+\begin{table}[h!]
+\caption{Campos o atributos de los datos crudos de trayectorias de albatros}
+\begin{center}
+    \begin{tabular}{lc}
+        Atributo & Descripción \\
+        \hline
+        date & Formato 'yyyy-mm-dd'. Se refiere a la fecha a la cual se
+        registro la posición del ave. \\
+        latitude & Coordenada geográfica de la posición latitudinal del ave. \\
+        longitude & Coordenada geográfica de la posición longitudinal del ave. \\
+        name & Se refiere al id asociado al individuo de albatros de Laysan.\\
+    \end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Identificación del área de anidamiento de la especie}
+
+El albatros de Laysan es una especie que presenta filopatría, esto quiere decir
+que generalmente regresa a su colonia natal para reproducirse.
+
+El albatros de Laysan se encuentra principalmente en el Pacífico Central (Islas
+del noroeste de Hawai). Sin embargo en 1983, estableció una nueva colonia en
+Isla Guadalupe.
+
+Isla Guadalupe es una isla mexicana de origen volcánico, ubicada frente a la
+costa de la península de Baja California y tiene una superficie total de
+476,971. Está categorizada como Reserva de la Biosfera ha de acuerdo a la
+Secretaría de Medio Ambiente y Recursos Naturales y a la Comisión Nacional de
+Áreas Naturales Protegidas.
+
+Isla Guadalupe se conforma de una isla principal y tres islotes principales,
+Zapato, Morro Prieto y el Toro.
+
+El albatros de Laysan ha establecido sus colonias en la Punta Sur de la Isla
+Principal, como se puede observar en .
+
+\begin{figure}[h!]
+    \includegraphics[scale=0.60]{figures/Isla Guadalupe.pdf}
+    \centering
+\end{figure}
 
 \subsection{Creación de la base de datos de Trayectorias de Albatros de Layssan}
 
@@ -124,6 +162,8 @@ framesep=10pt, framextopmargin=10pt] {../src/create_table_albatross.sql}
 \section{Conclusiones y trabajo a futuro}
 
 
-% \bibliographystyle{abbrv} \bibliography{references}  % need to put bibtex
-% references in references.bib 
+\pagebreak
+\bibliography{references/references} 
+\bibliographystyle{unsrt}
+
 \end{document}
