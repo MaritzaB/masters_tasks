@@ -1,5 +1,5 @@
 reports: \
-	reports/proyecto_final.pdf
+	reports/main.pdf
 
 .PHONY: \
 	reports \
@@ -12,7 +12,7 @@ define renderLatex
 	cd $(<D) && pdflatex $(<F)
 endef
 
-reports/proyecto_final.pdf: reports/proyecto_final.tex
+reports/main.pdf: reports/main.tex
 	$(renderLatex)
 
 
