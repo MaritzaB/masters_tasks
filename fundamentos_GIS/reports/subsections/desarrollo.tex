@@ -23,7 +23,7 @@ por lo menos un año después de su instalación.
 Los datos crudos se encuentran en formato CSV y contienen los siguientes campos
 o atributos:
 
-\begin{table}[h!]
+\begin{table}[h]
 \caption{Campos o atributos de los datos crudos de trayectorias de albatros.}
 \begin{center}
     \begin{tabular}{ l  m{7cm} }
@@ -47,11 +47,8 @@ o atributos:
 \subsection{Identificación del área de anidamiento de la especie}
 
 El albatros de Laysan es una especie que presenta filopatría, esto quiere decir
-que generalmente regresa a su colonia natal para reproducirse.
-
-El albatros de Laysan se encuentra principalmente en el Pacífico Central (Islas
-del noroeste de Hawai). Sin embargo en 1983, estableció una nueva colonia en
-Isla Guadalupe.
+que generalmente regresa a su colonia natal para reproducirse. En este caso, la
+colonia natal de la especie en cuestión es Isla Guadalupe.
 
 Isla Guadalupe es una isla mexicana de origen volcánico, ubicada frente a la
 costa de la península de Baja California y tiene una superficie total de
@@ -66,21 +63,155 @@ El albatros de Laysan ha establecido sus colonias en la Punta Sur de la Isla
 Principal, cuya ubicación se puede observar en la Fig.
 (\ref{fig:ubicacionIslaGpe}).
 
-\begin{figure}[h!]
+\begin{figure}[h]
+    \centering
     \includegraphics[scale=0.60]{figures/Isla Guadalupe.pdf}
     \caption{Ubicación del área de estudio}
     \label{fig:ubicacionIslaGpe}
-    \centering
 \end{figure}
 
 \subsection{Creación de base de datos}
 
-\lstinputlisting[language=SQL,   
-framesep=10pt, framextopmargin=10pt] {../src/create_table_albatross.sql}
+Con el fin de visualizar los datos, se cargaron a QGIS como puntos. Se utilizó
+la herramienta de clasificación para asignar un color de puntos a cada una de
+los individuos monitoreados, como se puede observar en la Fig.
+(\ref{fig:trayectorias}).
 
-\begin{figure}[h!]
+\begin{figure}[h]
+    \centering
     \includegraphics[scale=0.60]{figures/RawData.png}
     \caption{Datos crudos de las trayectorias de albatros}
     \label{fig:trayectorias}
-    \centering
 \end{figure}
+
+Como ya mencionamos, QGIS es una herramienta que además de ayudarnos a
+visualizar los datos, también nos permite una conexión a una base de datos de
+PostgreSQL. En este caso, queremos que todos nuestros datos estén
+cargados a una base de datos, por lo que utilizamos en \textit{database
+manager}.
+
+Cargamos las siguientes dos tablas a la base de datos:
+
+\begin{itemize}
+    \item Tabla de trayectorias de albatros cuya geometría es de tipo punto.
+    \item Tabla de poligonos con países del continente americano.
+\end{itemize}
+
+En el menú de herramientas:
+\texttt{Database} $\rightarrow$ \texttt{DB manager} $\rightarrow$ \texttt{Import
+Layer}.
+
+Ahí seleccionamos PostGIS y seleccionamos la base de datos que creamos en
+PostgreSQL, como se puede observar en la Fig. (\ref{fig:importLayer}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.40]{figures/importLayerVector.png}
+    \caption{Importar capa a la base de datos de PostGIS desde QGIS.}
+    \label{fig:importLayer}
+\end{figure}
+
+La ventaja de tener los datos cargados a PostgreSQL es que nos crea un atributo
+de tipo \texttt{geometry}. Con este tipo de dato podemos utilizar las funciones
+de PostGIS para realizar cálculos u operaciones espaciales, además de realizar
+consultas a los datos de manera más facil.
+
+El primer \textit{query} que realizamos fue para agregar una columna con la
+temporada de reproducción del individuo, esto con el fin de observar si el rango
+de desplazamiento del individuo cambia dependiendo de la etapa reproductiva.
+
+En QGIS:
+
+\texttt{DB manager} $\rightarrow$ \texttt{Database} $\rightarrow$ \texttt{SQL
+view} 
+
+\lstinputlisting[language=SQL,   
+framesep=10pt, framextopmargin=10pt] {../src/albatross_season.sql}
+
+Al ejecutar este query, obtendremos una vista de los datos con una columna
+extra, la cual utilizaremos para visualizar los datos por temporada, además de
+que también los podremos cargar como capa a QGIS como se muesta en las Figs.
+(\ref{fig:incubacion}, \ref{fig:empollamiento}, \ref{fig:crianza}, y
+\ref{fig:NoReproduccion}
+).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{figures/seasonsIncubacion.png}
+    \caption{Trayectorias de albatros de Layssan durante la temporada de
+    incubación. En esta temporada, los padres alternan entre el ayuno mientras
+    incuban el huevo y se alimentan en el mar.}
+    \label{fig:incubacion}
+\end{figure}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.60]{figures/seasonsEmpollamiento.png}
+    \caption{Trayectorias de albatros de Layssan durante la temporada de
+    empollamiento. En esta temporada, las parejas reproductoras alternan entre
+    el ayuno en el nido y la alimentación en el mar, donde también aprovisionan
+    para el pollito.}
+    \label{fig:empollamiento}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.60]{figures/seasonsCrianza.png}
+    \caption{Trayectorias de albatros de Layssan durante la temporada de
+    crianza. Las parejas reproductoras se alimentan de forma independiente en el
+    mar y regresan al nodo periódicamente para aprovisionar al polluelo.}
+    \label{fig:crianza}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.60]{figures/seasonsNoReproduccion.png}
+    \caption{Trayectorias de albatros de Layssan durante la temporada de no
+    reproducción.}
+    \label{fig:NoReproduccion}
+\end{figure}
+
+\subsubsection{Heramientas de procesamiento geo-espacial}
+
+Para hacer uso de las herramientas de procesamiento geo-espacial que nos ofrece,
+decidimos calcular la envolvente convexa para todas las trayectorias de los
+albatros. Esto con el fin de determinar el área máxima que volaron los albatros
+aproximadamente durante todas sus temporadas. Ver Fig. (\ref{fig:fullConvexHull}).
+
+El query utilizado para generar la envolvente convexa es el siguiente:
+
+\lstinputlisting[language=SQL,   
+framesep=10pt, framextopmargin=10pt] {../src/full_convex_hull_albatross.sql}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.60]{figures/fullConvexHull.png}
+    \caption{Envolvente convexa para las trayectorias completas de los albatros.}
+    \label{fig:fullConvexHull}
+\end{figure}
+
+Para precisar un poco más el área de desplazamiento, obtuvimos la diferencia del
+polígono obtenido anteriormente con el polígono del continente. Esto lo hicimos
+ya que al ser aves marinas estas evitan en medida de lo posible el continente.
+El query para generar este resultado es el siguiente:
+
+\lstinputlisting[language=SQL,   
+framesep=10pt, framextopmargin=10pt] {../src/diferencia_query.sql}
+
+El resultado se muestra en la Fig. (\ref{fig:differenceFullConvexHull})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.60]{figures/differenceFullConvexHull.png}
+    \caption{Envolvente convexa sin área de continente para las trayectorias
+    completas de los albatros.}
+    \label{fig:differenceFullConvexHull}
+\end{figure}
+
+
+Un análisis semejante se hizo para cada una de las temporadas, esto con el fin
+de determinar su área de desplazamiento durante cadá etapa de reproducción.
+
+
+

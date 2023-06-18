@@ -4,7 +4,7 @@
 \usepackage[top=3cm, bottom=3cm, left = 2cm, right = 2cm]{geometry} 
 \geometry{a4paper} 
 \usepackage[T1]{fontenc}
-\usepackage{textcomp}
+%\usepackage{textcomp}
 \usepackage{graphicx} 
 \usepackage{amsmath,amssymb}  
 \usepackage{bm}  
@@ -23,6 +23,7 @@
 \usepackage{setspace}
 \usepackage{parskip}
 \usepackage{array}
+\usepackage{pdflscape}
 \usepackage{caption}
 \captionsetup[table]{skip=10pt}
 
@@ -47,11 +48,18 @@ Proyecto final de fundamentos de Sistemas de Información Geográfica \\
 
 \input{subsections/desarrollo}
 
+\clearpage
 \section{Conclusiones y trabajo a futuro}
 
-
+\clearpage
 \pagebreak
 \bibliography{references/references} 
 \bibliographystyle{unsrt}
+
+\pagebreak
+\section{Anexos}
+
+\lstinputlisting[language=SQL,   
+framesep=10pt, framextopmargin=10pt] {../src/create_table_albatross.sql}
 
 \end{document}
