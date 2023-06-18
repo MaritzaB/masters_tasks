@@ -2,19 +2,19 @@
 \section{Desarrollo}
 
 \input{subsections/herramientas}
-
+\clearpage
 \subsection{Datos}
 
 Los datos utilizados en esta pŕactica corresponden a las trayectorias de
 albatros de Laysan, registradas mediantes dispositivos GPS y GLS
 \footnote{Sistema de posicionamiento global y sensor de localización global
-respectivamente, por sus siglas en inglés}, de 47 individuos durante los años
+respectivamente, por sus siglas en inglés.}, de 47 individuos durante los años
 2014 a 2018.
 
 Los GPS se programaron para registrar simultáneamente la posición y la velocidad
 del albatros cada 20 minutos, lo que permitió grabar de forma contínua durante
 12 a 15 días en algunos casos y en otros de 60 a 70 días, durante la etapa
-reproductiva \cite{hernandez2019ecologia}.
+reproductiva.
 
 Para conocer los hábitos migratorios y zonas de distribución en temporada no
 reproductiva se instalaron los dispositivos GLS, los cuales fueron recuperados
@@ -44,6 +44,7 @@ o atributos:
 \end{center}
 \end{table}
 
+\clearpage
 \subsection{Identificación del área de anidamiento de la especie}
 
 El albatros de Laysan es una especie que presenta filopatría, esto quiere decir
@@ -70,6 +71,7 @@ Principal, cuya ubicación se puede observar en la Fig.
     \label{fig:ubicacionIslaGpe}
 \end{figure}
 
+\clearpage
 \subsection{Creación de base de datos}
 
 Con el fin de visualizar los datos, se cargaron a QGIS como puntos. Se utilizó
@@ -173,6 +175,7 @@ que también los podremos cargar como capa a QGIS como se muesta en las Figs.
     \label{fig:NoReproduccion}
 \end{figure}
 
+\clearpage
 \subsection{Uso de las heramientas de procesamiento geo-espacial}
 
 Para hacer uso de las herramientas de procesamiento geo-espacial que nos ofrece,
@@ -244,3 +247,21 @@ de determinar su área de desplazamiento durante cadá etapa de reproducción Fi
     \label{fig:convexHullCrianza}
 \end{figure}
 
+Finalmente, para hacer uso de otra de las herramientas que nos brindan los SIG,
+calculamos el área de los polígonos de envolvente convexa. Las áreas obtenidas
+por cada una de las temporadas se encuentran en la Tabla (\ref{tab:areas})
+
+\begin{table}[h]
+    \caption{Áreas de desplazamiento del albatros por temporada reproductiva.}
+    \begin{center}
+        \begin{tabular}{cc}
+            Temporada & Área en \textit{ha} \\
+            \hline
+            Incubación & 600,101,246 \\
+            Empollamiento & 215,802,336 \\
+            Crianza & 580,683,060 \\
+            Todas las temporadas & 676,978,901
+        \end{tabular}
+        \label{tab:areas}
+    \end{center}
+\end{table}
