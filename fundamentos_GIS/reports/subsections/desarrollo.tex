@@ -102,14 +102,15 @@ En el menú de herramientas:
 Layer}.
 
 Ahí seleccionamos PostGIS y seleccionamos la base de datos que creamos en
-PostgreSQL, como se puede observar en la Fig. (\ref{fig:importLayer}).
+PostgreSQL. Debemos asegurarnos de enviar la capa sobre la que estamos
+trabajando y la base de datos en PostgreSQL a la que lo vamos a mandar. Algunos
+atributos importantes que debemos seleccionar son el \texttt{id} y
+\texttt{geometry column}, ya que estos son los que definirán los atributos
+característicos de una base de datos geoespacial.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.40]{figures/importLayerVector.png}
-    \caption{Importar capa a la base de datos de PostGIS desde QGIS.}
-    \label{fig:importLayer}
-\end{figure}
+Otra forma de crear las tablas de la base de datos que estamos trabajando es a
+partir de una ejecución de \texttt{SQL command}, en cuyo casó sería como el
+código mostado en el anexo.
 
 La ventaja de tener los datos cargados a PostgreSQL es que nos crea un atributo
 de tipo \texttt{geometry}. Con este tipo de dato podemos utilizar las funciones
@@ -160,7 +161,7 @@ que también los podremos cargar como capa a QGIS como se muesta en las Figs.
     \includegraphics[scale=0.60]{figures/seasonsCrianza.png}
     \caption{Trayectorias de albatros de Layssan durante la temporada de
     crianza. Las parejas reproductoras se alimentan de forma independiente en el
-    mar y regresan al nodo periódicamente para aprovisionar al polluelo.}
+    mar y regresan al nido periódicamente para aprovisionar al polluelo.}
     \label{fig:crianza}
 \end{figure}
 
@@ -172,14 +173,16 @@ que también los podremos cargar como capa a QGIS como se muesta en las Figs.
     \label{fig:NoReproduccion}
 \end{figure}
 
-\subsubsection{Heramientas de procesamiento geo-espacial}
+\subsection{Uso de las heramientas de procesamiento geo-espacial}
 
 Para hacer uso de las herramientas de procesamiento geo-espacial que nos ofrece,
 decidimos calcular la envolvente convexa para todas las trayectorias de los
 albatros. Esto con el fin de determinar el área máxima que volaron los albatros
 aproximadamente durante todas sus temporadas. Ver Fig. (\ref{fig:fullConvexHull}).
 
-El query utilizado para generar la envolvente convexa es el siguiente:
+La función utilizada para generar la envolvente convexa es
+\texttt{ST\_Convexhull} y en conjunto con \texttt{ST\_Collect} y
+\texttt{ST\_astext} se usa de la siguiente manera:
 
 \lstinputlisting[language=SQL,   
 framesep=10pt, framextopmargin=10pt] {../src/full_convex_hull_albatross.sql}
@@ -194,12 +197,14 @@ framesep=10pt, framextopmargin=10pt] {../src/full_convex_hull_albatross.sql}
 Para precisar un poco más el área de desplazamiento, obtuvimos la diferencia del
 polígono obtenido anteriormente con el polígono del continente. Esto lo hicimos
 ya que al ser aves marinas estas evitan en medida de lo posible el continente.
-El query para generar este resultado es el siguiente:
+
+La función de PostGIS utilizada para generar este resultado es
+\texttt{ST\_Difference} y la usamos de la siguiente manera:
 
 \lstinputlisting[language=SQL,   
 framesep=10pt, framextopmargin=10pt] {../src/diferencia_query.sql}
 
-El resultado se muestra en la Fig. (\ref{fig:differenceFullConvexHull})
+El resultado se muestra en la Fig. (\ref{fig:differenceFullConvexHull}).
 
 \begin{figure}[h]
     \centering
@@ -211,7 +216,31 @@ El resultado se muestra en la Fig. (\ref{fig:differenceFullConvexHull})
 
 
 Un análisis semejante se hizo para cada una de las temporadas, esto con el fin
-de determinar su área de desplazamiento durante cadá etapa de reproducción.
+de determinar su área de desplazamiento durante cadá etapa de reproducción Figs.
+(\ref{fig:convexHullIncubacion}, \ref{fig:convexHullEmpollamiento} y
+\ref{fig:convexHullCrianza}).
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.60]{figures/convexHullIncubacion.png}
+    \caption{Envolvente convexa sin área de continente para las trayectorias
+    de los albatros durante la temporada de incubación.}
+    \label{fig:convexHullIncubacion}
+\end{figure}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.60]{figures/convexHullEmpollamiento.png}
+    \caption{Envolvente convexa sin área de continente para las trayectorias
+    de los albatros durante la temporada de empollamiento.}
+    \label{fig:convexHullEmpollamiento}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.60]{figures/convexHullCrianza.png}
+    \caption{Envolvente convexa sin área de continente para las trayectorias
+    de los albatros durante la temporada de crianza.}
+    \label{fig:convexHullCrianza}
+\end{figure}
 
