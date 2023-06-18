@@ -33,7 +33,10 @@
 Layssan. \\
 Proyecto final de fundamentos de Sistemas de Información Geográfica \\
 }
-\author{Ana Maritza Bello Yáñez \\ Profesora: Dra. Magdalena Saldaña}
+\author{
+    Ana Maritza Bello Yáñez \\ 
+    Profesora: Dra. Ana María Magdalena Saldaña
+    }
 %\date{}
 
 \begin{document}
@@ -49,15 +52,17 @@ Proyecto final de fundamentos de Sistemas de Información Geográfica \\
 \input{subsections/desarrollo}
 
 \clearpage
-\section{Conclusiones y trabajo a futuro}
+\input{subsections/conclusiones}
 
 \clearpage
-\pagebreak
-\bibliography{references/references} 
-\bibliographystyle{unsrt}
+%\pagebreak
+%\bibliography{references/references} 
+%\bibliographystyle{unsrt}
 
 \pagebreak
 \section{Anexos}
+Código de SQL que genera la tabla de trayectorias de albatros y carga los puntos
+a la base de datos.
 
 \lstinputlisting[language=SQL,   
 framesep=10pt, framextopmargin=10pt] {../src/create_table_albatross.sql}
