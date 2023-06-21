@@ -1,0 +1,70 @@
+% LaTeX Template for short student reports. Citations should be in bibtex format
+% and go in references.bib
+\documentclass[a4paper, 11pt]{article}
+\usepackage[top=3cm, bottom=3cm, left = 2cm, right = 2cm]{geometry} 
+\geometry{a4paper} 
+\usepackage[T1]{fontenc}
+%\usepackage{textcomp}
+\usepackage{graphicx} 
+\usepackage{amsmath,amssymb}  
+\usepackage{bm}  
+\usepackage[pdftex,bookmarks,colorlinks,breaklinks]{hyperref}  
+\hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} %
+%black links, for printed output
+\usepackage{memhfixc} 
+\usepackage{pdfsync}  
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{color}
+\usepackage{upquote,listings}
+\usepackage{pdflscape}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{array}
+\usepackage{pdflscape}
+\usepackage{caption}
+\captionsetup[table]{skip=10pt}
+
+\input{custom/sql_stylo}
+
+\title{ Análisis geo-espacial de datos de gps de trayectorias de Albatros de
+Layssan. \\
+Proyecto final de fundamentos de Sistemas de Información Geográfica \\
+}
+\author{
+    Ana Maritza Bello Yáñez \\ 
+    Profesora: Dra. Ana María Magdalena Saldaña
+    }
+%\date{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\input{subsections/objetivos}
+
+\input{subsections/resumen}
+
+\input{subsections/introduccion}
+
+\input{subsections/desarrollo}
+
+\clearpage
+\input{subsections/conclusiones}
+
+\clearpage
+%\pagebreak
+%\bibliography{references/references} 
+%\bibliographystyle{unsrt}
+
+\pagebreak
+\section{Anexos}
+Código de SQL que genera la tabla de trayectorias de albatros y carga los puntos
+a la base de datos.
+
+\lstinputlisting[language=SQL,   
+framesep=10pt, framextopmargin=10pt] {../src/create_table_albatross.sql}
+
+\end{document}

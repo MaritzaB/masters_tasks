@@ -1,0 +1,38 @@
+
+\subsection{Herramientas utilizadas en el proyecto}
+
+Las herramientas utilizadas en este proyecto son QGIS, PostgreSQL y PostGIS.
+
+QGIS o Quantum GIS es un software de código abierto que permite la
+visualización, edición y análisis de datos geoespaciales. 
+
+PostgreSQL es un sistema de gestión de bases de datos relacional de código
+abierto que permite almacenar grande volúmenes de datos de manera eficiente y
+segura.
+
+PostGIS es una extensión espacial para PostgreSQL que agrega soporte para los
+datos geoespaciales. Con esta extensión es posible almacenar datos
+geoespaciales. A su vez, PostGIS también cuenta con funciones implementadas para
+realizar operaciones geoespaciales como el cambio de sistema de referencia
+cartesiano (\texttt{ST\_transform}) y operaciones topológicas como las
+siguientes, por mencionar algunas:
+
+\begin{itemize}
+\item Intersección (\texttt{ST\_Intersection}): Encuentra la geometría resultante de la
+intersección entre dos o más objetos espaciales.
+
+\item Unión (\texttt{ST\_Union}): Combina las geometrías de dos o más objetos espaciales en un
+único objeto resultante.
+
+\item Superposición (\texttt{ST\_Overlap}): Verifica si dos geometrías se superponen en alguna
+medida.
+
+\item Buffer (\texttt{ST\_Buffer}) Crea un área o zona de influencia alrededor de una geometría, basada en
+una distancia específica.
+
+\item Longitud (\texttt{ST\_Length}): Calcula la longitud de una línea o el perímetro de un
+polígono.
+
+\item Área (\texttt{ST\_Area}): Calcula el área de un polígono.
+
+\end{itemize}
